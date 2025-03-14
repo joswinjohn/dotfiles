@@ -1,0 +1,11 @@
+.include /etc/pulse/default.pa
+load-module module-virtual-surround-sink
+sink_name=HRTF
+sink_properties=device.description="Virtual Surround 5.1"
+format=float32le
+rate=48000
+channels=6
+channel_map=front-left,front-right,rear-left,rear-right,front-center,lfe
+use_volume_sharing=yes
+force_flat_volume=no
+hrir=path/to/impulse/response/hrir/file.wav
