@@ -1,0 +1,9 @@
+[Unit]
+Description="sets sysfs variables at boot"
+
+[Service]
+ExecStartPre=/bin/bash -c "dbus-send --system --type=method_call  --dest="org.freedesktop.UPower" "/org/freedesktop/UPower/KbdBacklight" "org.freedesktop.UPower.KbdBacklight.SetBrightness" int32:value"
+ExecStart=/bin/bash -c "echo 13 > /sys/devices/virtual/thermal/cooling_device17/cur_state"
+
+[Install]
+WantedBy=multi-user.target
